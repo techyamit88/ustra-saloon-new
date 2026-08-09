@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>USTRA — Classic Gents &amp; Ladies Saloon, Est. 1998</title>
+<meta name="description" content="उस्तरा — a classic Indian saloon. Haircuts, champi, shaves, facials and mehendi, done the old way." />
+
+<!-- Google Fonts: Baloo family for Devanagari-aware display, Mukta for bilingual body text, Teko for signage-style labels -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Baloo+Bhai+2:wght@600;700;800&family=Mukta:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== LOADING SCREEN / CURTAIN ===================== -->
+<div class="loader" id="loader" role="dialog" aria-label="Welcome">
+  <div class="loader__curtain loader__curtain--left"></div>
+  <div class="loader__curtain loader__curtain--right"></div>
+  <div class="loader__rings" aria-hidden="true"></div>
+  <div class="loader__content">
+    <span class="loader__eyebrow">आइए, तशरीफ़ रखिए</span>
+    <h1 class="loader__title">उस्तरा</h1>
+    <p class="loader__sub">USTRA · Classic Saloon since 1998</p>
+    <button class="btn btn--primary loader__btn" id="enterBtn" type="button">
+      <span>Enter the Saloon</span>
+    </button>
+    <p class="loader__hint">(turns the music on too — old radio needs a nudge)</p>
+  </div>
+</div>
+
+<!-- Floating petal / jasmine particle layer -->
+<canvas id="petalCanvas" class="petal-canvas" aria-hidden="true"></canvas>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav__brand" aria-label="USTRA home">
+    <span class="nav__brand-hi">उस्तरा</span>
+    <span class="nav__brand-en">USTRA</span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#book">Book a Chair</a>
+    <a href="#contact">Visit Us</a>
+  </nav>
+
+  <div class="nav__actions">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+      <span class="theme-toggle__track">
+        <span class="theme-toggle__sun">☀</span>
+        <span class="theme-toggle__moon">☾</span>
+        <span class="theme-toggle__knob"></span>
+      </span>
+      <span class="theme-toggle__label" id="themeLabel">Night Saloon</span>
+    </button>
+    <button class="nav__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navLinksMobile" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-mobile" id="navLinksMobile">
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#book">Book a Chair</a>
+  <a href="#contact">Visit Us</a>
+</div>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="hero">
+
+  <!-- CSS-built shopfront scene -->
+  <div class="scene" aria-hidden="true">
+    <div class="scene__sky"></div>
+    <div class="scene__sun"></div>
+    <div class="scene__bulbs">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="scene__building">
+      <div class="scene__signboard">
+        <span class="scene__sign-hi">डीलक्स सैलून</span>
+        <span class="scene__sign-en">D E L U X E&nbsp; S A L O O N</span>
+      </div>
+      <div class="scene__awning"></div>
+      <div class="scene__shopfront">
+        <div class="scene__mirror-wall">
+          <div class="scene__mirror"></div>
+          <div class="scene__mirror"></div>
+          <div class="scene__mirror"></div>
+        </div>
+        <div class="scene__chair">
+          <div class="scene__chair-back"></div>
+          <div class="scene__chair-seat"></div>
+          <div class="scene__chair-base"></div>
+        </div>
+        <div class="scene__shelf">
+          <span class="bottle bottle--1"></span>
+          <span class="bottle bottle--2"></span>
+          <span class="bottle bottle--3"></span>
+        </div>
+        <div class="scene__poster"></div>
+      </div>
+    </div>
+
+    <div class="scene__ground"></div>
+    <div class="scene__palm scene__palm--left"></div>
+    <div class="scene__palm scene__palm--right"></div>
+    <div class="scene__vignette"></div>
+  </div>
+
+  <!-- Hover-interactive tools -->
+  <div class="hero__tools" aria-hidden="true">
+    <svg class="tool tool--scissors" viewBox="0 0 100 100" width="70" height="70">
+      <g class="tool--scissors__blade1">
+        <circle cx="20" cy="20" r="10" fill="none" stroke="currentColor" stroke-width="5"/>
+        <line x1="27" y1="27" x2="80" y2="80" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g class="tool--scissors__blade2">
+        <circle cx="20" cy="80" r="10" fill="none" stroke="currentColor" stroke-width="5"/>
+        <line x1="27" y1="73" x2="80" y2="20" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <svg class="tool tool--comb" viewBox="0 0 100 40" width="90" height="36">
+      <rect x="2" y="2" width="96" height="10" rx="4" fill="currentColor"/>
+      <g stroke="currentColor" stroke-width="3">
+        <line x1="8" y1="12" x2="8" y2="36"/>
+        <line x1="17" y1="12" x2="17" y2="36"/>
+        <line x1="26" y1="12" x2="26" y2="36"/>
+        <line x1="35" y1="12" x2="35" y2="36"/>
+        <line x1="44" y1="12" x2="44" y2="36"/>
+        <line x1="53" y1="12" x2="53" y2="36"/>
+        <line x1="62" y1="12" x2="62" y2="36"/>
+        <line x1="71" y1="12" x2="71" y2="36"/>
+        <line x1="80" y1="12" x2="80" y2="36"/>
+        <line x1="89" y1="12" x2="89" y2="36"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero__content">
+    <p class="hero__eyebrow">Est. 1998 &middot; Meerut, U.P.</p>
+    <h1 class="hero__title">डीलक्स कट,<br>क्लासिक <span>अंदाज़</span></h1>
+    <p class="hero__sub">Tiled mirrors, cane chairs and the same razor strop since 1998. Champi, shave, trim &amp; mehendi — the old way, done properly.</p>
+    <div class="hero__cta">
+      <a href="#book" class="btn btn--primary">Book Your Chair</a>
+      <a href="#services" class="btn btn--ghost">See Rate List</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span></span>
+    <p>बैठिए, बारी आती है</p>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services">
+  <div class="section-head">
+    <span class="section-head__eyebrow">Rate List</span>
+    <h2 class="section-head__title">सेवाएँ &amp; क़ीमतें</h2>
+    <p class="section-head__sub">Pinned to the mirror since day one. Tap a card to flip it.</p>
+  </div>
+
+  <div class="card-grid" id="cardGrid">
+    <!-- Service flip cards injected by JS from DATA.services, static fallback below for no-js -->
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <span class="section-head__eyebrow">Before &amp; After</span>
+    <h2 class="section-head__title">कमाल का काम</h2>
+    <p class="section-head__sub">Drag the razor across the photo frame.</p>
+  </div>
+
+  <div class="ba-frame" id="baFrame">
+    <div class="ba-frame__tape ba-frame__tape--tl"></div>
+    <div class="ba-frame__tape ba-frame__tape--br"></div>
+
+    <div class="ba-frame__panel ba-frame__panel--after">
+      <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="After: sharp, styled haircut">
+        <rect width="300" height="300" fill="#3a2620"/>
+        <circle cx="150" cy="150" r="95" fill="#e7b98d"/>
+        <path d="M55,140 a95,95 0 0 1 190,0 q-10,-55 -95,-58 q-85,3 -95,58 Z" fill="#1b120f"/>
+        <path d="M60,120 q90,-40 180,0 l-4,-16 q-86,-34 -172,0 Z" fill="#1b120f"/>
+        <rect x="120" y="215" width="60" height="14" rx="7" fill="#5c3b28"/>
+      </svg>
+      <span class="ba-frame__tag">After</span>
+    </div>
+
+    <div class="ba-frame__panel ba-frame__panel--before">
+      <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Before: overgrown, unstyled hair">
+        <rect width="300" height="300" fill="#4a4038" opacity="0.9"/>
+        <circle cx="150" cy="155" r="95" fill="#c9a377"/>
+        <path d="M50,150 q10,-115 100,-118 q95,2 100,118 q-15,-70 -100,-72 q-85,2 -100,72 Z" fill="#241a15"/>
+        <path d="M45,145 q-12,20 5,45 q4,-25 15,-35 Z" fill="#241a15"/>
+        <path d="M255,145 q12,20 -5,45 q-4,-25 -15,-35 Z" fill="#241a15"/>
+        <rect x="118" y="220" width="64" height="14" rx="7" fill="#8a6a4a"/>
+      </svg>
+      <span class="ba-frame__tag">Before</span>
+    </div>
+
+    <input type="range" min="0" max="100" value="50" class="ba-frame__slider" id="baSlider" aria-label="Drag to compare before and after">
+    <div class="ba-frame__handle" id="baHandle" aria-hidden="true">
+      <span>&#9994;</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BOOK APPOINTMENT ===================== -->
+<section class="book" id="book">
+  <div class="section-head section-head--light">
+    <span class="section-head__eyebrow">Appointment Register</span>
+    <h2 class="section-head__title">अपनी बारी लिखवाइए</h2>
+    <p class="section-head__sub">Fill the register like the old days — we'll call to confirm your slot.</p>
+  </div>
+
+  <form class="register" id="bookingForm" novalidate>
+    <div class="register__spine" aria-hidden="true"></div>
+    <div class="register__punchholes" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <div class="register__row register__row--head">
+      <span>S.No.</span><span>Name</span><span>Service</span><span>Date</span><span>Time</span>
+    </div>
+
+    <div class="register__row register__row--entry">
+      <span class="register__no">01</span>
+
+      <label class="register__field">
+        <input type="text" id="bkName" name="name" placeholder=" " required autocomplete="name">
+        <span>Full Name</span>
+      </label>
+
+      <label class="register__field">
+        <select id="bkService" name="service" required>
+          <option value="" disabled selected>Choose service</option>
+          <option>Haircut — ₹150</option>
+          <option>Ustra Shave — ₹60</option>
+          <option>Head Massage (Champi) — ₹100</option>
+          <option>Facial — ₹300</option>
+          <option>Hair Colour — ₹250</option>
+          <option>Bridal Mehendi — ₹1200</option>
+        </select>
+        <span>Service</span>
+      </label>
+
+      <label class="register__field">
+        <input type="date" id="bkDate" name="date" required>
+        <span>Date</span>
+      </label>
+
+      <label class="register__field">
+        <input type="time" id="bkTime" name="time" required>
+        <span>Time</span>
+      </label>
+    </div>
+
+    <div class="register__row register__row--entry register__row--contact">
+      <span class="register__no">—</span>
+      <label class="register__field register__field--wide">
+        <input type="tel" id="bkPhone" name="phone" placeholder=" " required pattern="[0-9+\-\s]{7,15}" autocomplete="tel">
+        <span>Phone Number</span>
+      </label>
+      <label class="register__field register__field--wide register__field--note">
+        <input type="text" id="bkNote" name="note" placeholder=" " autocomplete="off">
+        <span>Note for the ustad (optional)</span>
+      </label>
+    </div>
+
+    <div class="register__footer">
+      <p class="register__stamp" aria-hidden="true">ठीक है</p>
+      <button type="submit" class="btn btn--primary register__submit">Confirm My Slot</button>
+    </div>
+
+    <p class="register__status" id="bookingStatus" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<footer class="footer" id="contact">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <span class="footer__brand-hi">उस्तरा</span>
+      <p>Shop No. 7, Sadar Bazaar Road, Meerut, U.P. — 250001</p>
+      <p>Open daily · 9:00 AM – 9:00 PM</p>
+      <p>+91 98xxx xxxxx</p>
+    </div>
+    <div class="footer__hours">
+      <h3>Chair Hours</h3>
+      <ul>
+        <li><span>Mon – Sat</span><span>9 AM – 9 PM</span></li>
+        <li><span>Sunday</span><span>10 AM – 6 PM</span></li>
+      </ul>
+    </div>
+    <div class="footer__note">
+      <h3>Note from the Ustad</h3>
+      <p>No appointment? No problem — walk-ins get chai while they wait.</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>&copy; <span id="year"></span> Ustra Gents &amp; Ladies Saloon. Made with a straight razor and a steady hand.</p>
+  </div>
+</footer>
+
+</main>
+
+<!-- ===================== VINTAGE MUSIC PLAYER ===================== -->
+<div class="player" id="player" aria-label="Saloon music player">
+  <button class="player__collapse" id="playerCollapse" type="button" aria-expanded="true" aria-label="Minimise player">▾</button>
+
+  <div class="player__disc-wrap">
+    <div class="player__disc" id="playerDisc">
+      <div class="player__disc-label"></div>
+    </div>
+    <div class="player__tonearm" id="playerTonearm"></div>
+  </div>
+
+  <div class="player__body">
+    <div class="player__meta">
+      <p class="player__track" id="playerTrackName">No track loaded</p>
+      <p class="player__artist" id="playerArtistName">Add MP3s to /audio</p>
+      <canvas class="player__viz" id="playerViz" width="140" height="28"></canvas>
+    </div>
+
+    <div class="player__seek-row">
+      <span id="playerTime">0:00</span>
+      <input type="range" id="playerSeek" class="player__seek" min="0" max="100" value="0" aria-label="Seek">
+      <span id="playerDuration">0:00</span>
+    </div>
+
+    <div class="player__controls">
+      <button id="playerPrev" type="button" aria-label="Previous track">⏮</button>
+      <button id="playerPlay" type="button" aria-label="Play">▶</button>
+      <button id="playerNext" type="button" aria-label="Next track">⏭</button>
+
+      <label class="player__vol">
+        <span aria-hidden="true">🔊</span>
+        <input type="range" id="playerVolume" min="0" max="100" value="70" aria-label="Volume">
+      </label>
+
+      <button id="ambientToggle" type="button" class="player__ambient" aria-pressed="false" title="Toggle shop ambience when paused">✂</button>
+    </div>
+  </div>
+
+  <audio id="audioEl" preload="metadata"></audio>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
